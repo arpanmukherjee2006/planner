@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Smart Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <!-- <img src="logo.png" alt="TaskFlow Logo"> -->
+                <h1>Taskify</h1>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#tasks"><i class="fas fa-list-check"></i> My Tasks</a>
+                    </li>
+                    <li>
+                        <a href="#notes"><i class="fas fa-sticky-note"></i> Notes</a>
+                    </li>
+                    <li>
+                        <a href="#history"><i class="fas fa-history"></i> History</a>
+                    </li>
+                    <li>
+                        <a href="#ai-tools"><i class="fas fa-robot"></i> AI Tools</a>
+                    </li>
+                    
+                </ul>
+            </nav>
+            
+            <div class="theme-toggle">
+                <span>Theme</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <button class="close-sidebar-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </aside>
+        
+        <main class="content">
+            <header class="content-header">
+                <button class="mobile-nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="date-time">
+                    <div id="current-date"></div>
+                    <div id="current-time"></div>
+                </div>
+                <button id="add-task-btn" class="btn-primary">
+                    <i class="fas fa-plus"></i> <span class="btn-text">Add Task</span>
+                </button>
+                <button class="assistant-toggle">
+                    <i class="fas fa-message"></i>
+                </button>
+            </header>
+            
+            <section id="tasks-section" class="section active">
+                <div class="section-header">
+                    <h2>Today's Tasks</h2>
+                    <div class="view-options">
+                        <i class="fas fa-list active"></i>
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                </div>
+                
+                <div id="tasks-container" class="tasks-container"></div>
+            </section>
+            
+            <section id="notes-section" class="section">
+                <div class="section-header">
+                    <h2>My Notes</h2>
+                    <button id="add-note-btn" class="btn-secondary">
+                        <i class="fas fa-plus"></i> <span class="btn-text">Add Note</span>
+                    </button>
+                </div>
+                
+                <div id="notes-container" class="notes-container"></div>
+            </section>
+            
+            <section id="history-section" class="section">
+                <div class="section-header">
+                    <h2>Task History</h2>
+                    <div class="section-actions">
+                        <button class="btn-tertiary" id="clear-history-btn">
+                            <i class="fas fa-trash"></i> Clear History
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="history-container" class="history-container"></div>
+            </section>
+            
+            <section id="ai-tools-section" class="section">
+                <div class="section-header">
+                    <h2>AI Tools</h2>
+                    <div class="section-actions">
+                        <button class="btn-tertiary" id="open-all-ai-tools">
+                            <i class="fas fa-external-link-alt"></i> Open All
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="section-description">
+                    <p>Connect with powerful AI assistants to enhance your productivity.</p>
+                </div>
+                
+                <div class="ai-tools-container">
+                    <div class="ai-tool" onclick="window.open('https://chat.openai.com', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/chatgpt logo.webp" alt="ChatGPT Logo">
+                        </div>
+                        <h3>ChatGPT</h3>
+                        <p>Powerful AI chatbot for various tasks</p>
+                    </div>
+                    
+                    <div class="ai-tool" onclick="window.open('https://claude.ai', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/claude logo.webp" alt="Claude Logo">
+                        </div>
+                        <h3>Claude</h3>
+                        <p>Advanced AI assistant by Anthropic</p>
+                    </div>
+                    
+                    <div class="ai-tool" onclick="window.open('https://deepseek.ai', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/deepseek-logo.webp" alt="DeepSeek Logo">
+                        </div>
+                        <h3>DeepSeek</h3>
+                        <p>AI-powered deep research tool</p>
+                    </div>
+                    
+                    <div class="ai-tool" onclick="window.open('https://gemini.google.com', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/google gemini logo.webp" alt="Google Gemini Logo">
+                        </div>
+                        <h3>Google Gemini</h3>
+                        <p>Google's advanced AI platform</p>
+                    </div>
+                    
+                    <div class="ai-tool" onclick="window.open('https://copilot.microsoft.com', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/microsoft_copilot-logo.webp" alt="Microsoft Copilot Logo">
+                        </div>
+                        <h3>Microsoft Copilot</h3>
+                        <p>AI assistant with Office integration</p>
+                    </div>
+                    
+                    <div class="ai-tool" onclick="window.open('https://perplexity.ai', '_blank')">
+                        <div class="ai-logo">
+                            <img src="img/perplexity logo.webp" alt="Perplexity Logo">
+                        </div>
+                        <h3>Perplexity</h3>
+                        <p>AI-powered search engine with citations</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <aside class="task-assistant">
+            <div class="assistant-header">
+                <h3>Task Assistant</h3>
+                <button class="close-assistant-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="assistant-content">
+                <div class="assistant-messages" id="assistant-messages">
+                    <div class="message assistant">
+                        <p>Welcome to TaskFlow! Type "add [task] & [time]" to add a new task or "add [task1], [task2], [task3]" to add multiple tasks at once.</p>
+                    </div>
+                </div>
+                
+                <div class="assistant-input">
+                    <input type="text" id="command-input" placeholder="Type your command here...">
+                    <button id="send-command"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            <div class="assistant-quick-actions">
+                <button class="quick-action-btn" data-command="add">Add Task</button>
+                <button class="quick-action-btn" data-command="list tasks">List Tasks</button>
+                <button class="quick-action-btn" data-command="clear history">Clear History</button>
+                <button class="quick-action-btn" data-command="help">Help</button>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Modal for adding task -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Task</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Task Title</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-date">Date</label>
+                            <input type="date" id="task-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-time">Time</label>
+                            <input type="time" id="task-time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for adding note -->
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Note</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="note-form">
+                    <div class="form-group">
+                        <label for="note-title">Note Title</label>
+                        <input type="text" id="note-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Content</label>
+                        <textarea id="note-content" rows="5" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Note</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirm-dialog" class="confirm-dialog-container">
+        <div class="confirm-dialog">
+            <div class="confirm-dialog-header">
+                <h3 id="confirm-dialog-title">Confirmation</h3>
+                <span class="close" id="confirm-dialog-close">&times;</span>
+            </div>
+            <div class="confirm-dialog-body">
+                <p id="confirm-dialog-message">Are you sure you want to proceed?</p>
+            </div>
+            <div class="confirm-dialog-actions">
+                <button id="confirm-dialog-cancel" class="btn-secondary">Cancel</button>
+                <button id="confirm-dialog-confirm" class="btn-primary">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
